@@ -1,3 +1,4 @@
 pyvenv
 */pyvenv
 */.env
+*/terraform.tfvars

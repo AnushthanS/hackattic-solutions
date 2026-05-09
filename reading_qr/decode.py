@@ -1,6 +1,5 @@
 import requests
 import os
-import io
 import cv2
 import numpy as np
 from dotenv import load_dotenv

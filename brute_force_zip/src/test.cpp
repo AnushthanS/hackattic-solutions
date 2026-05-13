@@ -1,4 +1,4 @@
-#include "include/password_generator.h"
+#include "password_generator.h"
 #include <cassert>
 #include <chrono>
 #include <iostream>
@@ -14,14 +14,14 @@ int main() {
 
     // 2. Test: Integer to Password Conversion
     // val 0 should be 'aaaaa', val 1 should be 'aaaab' (depending on length)
-    int test_val = 1000;
+    long test_val = 1000;
     int length = 4;
-    std::string encoded = converter.intToPassword(test_val, length);
+    std::string encoded = converter.numToPassword(test_val, length);
     std::cout << "[Test 1] intToPassword(" << test_val << "): " << encoded
               << std::endl;
 
     // 3. Test: Password to Integer (Round-trip)
-    int decoded = converter.passwordToInt(encoded);
+    long decoded = converter.passwordToNum(encoded);
     std::cout << "[Test 2] passwordToInt(" << encoded << "): " << decoded
               << std::endl;
 
@@ -58,8 +58,8 @@ int main() {
 
     std::vector<std::string> bench_buffer;
     bench_buffer.reserve(100000);
-    for (int i = 0; i < 100000; ++i) {
-        bench_buffer.push_back(converter.intToPassword(i, 8));
+    for (long i = 0; i < 100000; ++i) {
+        bench_buffer.push_back(converter.numToPassword(i, 8));
     }
 
     auto t_end = high_resolution_clock::now();

@@ -15,8 +15,8 @@ class PasswordConverter {
 
     void setCharset(const std::string charset) { CHARSET = charset; }
 
-    std::string intToPassword(int val, int length) const;
-    int passwordToInt(const std::string &password) const;
+    std::string numToPassword(long val, int length) const;
+    long passwordToNum(const std::string &password) const;
 
     void incrementPassword(std::string &password);
 

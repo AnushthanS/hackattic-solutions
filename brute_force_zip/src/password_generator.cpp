@@ -1,4 +1,4 @@
-#include "include/password_generator.h"
+#include "password_generator.h"
 #include <fstream>
 #include <string>
 #include <vector>
@@ -17,7 +17,7 @@ void PasswordConverter::initializeLookup() {
     }
 }
 
-std::string PasswordConverter::intToPassword(int val, int length) const {
+std::string PasswordConverter::numToPassword(long val, int length) const {
     std::string buffer(length, CHARSET[0]);
 
     for (int i = 0; i < length; i++) {
@@ -29,8 +29,8 @@ std::string PasswordConverter::intToPassword(int val, int length) const {
     return buffer;
 }
 
-int PasswordConverter::passwordToInt(const std::string &password) const {
-    int ans = 0;
+long PasswordConverter::passwordToNum(const std::string &password) const {
+    long ans = 0;
 
     for (char c : password) {
         ans = ans * CHARSET.size() + getIndex(c);
